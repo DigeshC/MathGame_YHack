@@ -13,7 +13,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="120dp"
         android:layout_marginRight="120dp"
-        android:textSize="25sp"
+        android:textSize="35sp"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="120dp"
         android:layout_marginRight="120dp"
-        android:textSize="25sp"
+        android:textSize="35sp"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,10 +39,8 @@
 
     <EditText
         android:id="@+id/editText4"
-        android:singleLine="true"
-        android:imeOptions="actionDone"
-        android:layout_width="95dp"
-        android:layout_height="46dp"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="150dp"
         android:layout_marginLeft="120dp"
@@ -50,8 +48,11 @@
         android:layout_marginRight="120dp"
         android:ems="10"
         android:hint="@string/Answer"
+        android:imeOptions="actionDone"
         android:importantForAutofill="no"
-        android:inputType="phone"
+        android:inputType="numberSigned"
+        android:singleLine="true"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,6 +77,7 @@
 
     <TextView
         android:id="@+id/textView3"
+        android:textSize="35sp"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="120dp"
@@ -90,6 +92,7 @@
 
     <TextView
         android:id="@+id/textView4"
+        android:textSize="35sp"
         android:layout_width="53dp"
         android:layout_height="49dp"
         android:text=""
@@ -102,16 +105,17 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:textSize="35sp"
+        android:layout_width="67dp"
+        android:layout_height="62dp"
         android:background="#ff0000"
         android:text="GO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.722"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintVertical_bias="0.44" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

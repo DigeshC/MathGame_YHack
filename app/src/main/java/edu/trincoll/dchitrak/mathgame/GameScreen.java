@@ -35,16 +35,37 @@ public class GameScreen extends AppCompatActivity {
 
         int num1;
         int num2;
-        num1 = generateNum(10);
-        num2 = generateNum(10);
+
+        int opNum;
+
         TextView tv1 = (TextView) findViewById(R.id.textView);
         TextView tv2 = (TextView) findViewById(R.id.textView2);
         TextView tv3 = (TextView) findViewById(R.id.textView4);
+        TextView tv4 = (TextView) findViewById(R.id.textView3);
+
+        num1 = generateNum(10);
+        num2 = generateNum(10);
+
+        opNum = generateNum(4);
+
+        if (opNum == 0){
+            tv4.setText("+");
+            realAnswer = num1+num2;
+        }else if(opNum == 1){
+            tv4.setText("-");
+            realAnswer = num1-num2;
+        }else if(opNum == 2){
+            tv4.setText("X");
+            realAnswer = num1*num2;
+        }else{
+            tv4.setText("/");
+            realAnswer = (num1%num2)+generateNum(20);
+            num1 = num2*realAnswer;
+        }
 
         tv1.setText(num1+ "");
         tv2.setText(num2+ "");
         tv3.setText(((numQues + 1) - number)+"");
-        realAnswer = num1+num2;
 
         checkEnd();
     }
