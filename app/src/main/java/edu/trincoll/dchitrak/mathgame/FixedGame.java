@@ -26,6 +26,7 @@ public class FixedGame extends AppCompatActivity {
     int number = 1;
     int realAnswer;
     int numQues = 20;
+    NumTrack tracker = new NumTrack();
 
     private int generateNum(int max){
         return rand.nextInt(max);
@@ -68,6 +69,7 @@ public class FixedGame extends AppCompatActivity {
         tv2.setText(num2+ "");
         tv3.setText(((numQues + 1) - number)+"");
 
+
         checkEnd();
     }
 
@@ -90,10 +92,14 @@ public class FixedGame extends AppCompatActivity {
                 int finalValue = Integer.parseInt(value);
                 if (finalValue == realAnswer) {
                     //Log.d("Success", "Happy")
+                    TextView tvs = (TextView) findViewById(R.id.score);
                     number++;;
                     displayProblem();
+                    tracker.recalculateScore();
+                    tvs.setText(tracker.getScore()+"");
                 } else {
                     //Log.d("Fail", "Sad");
+                    tracker.resetStreak();
                 }
                 ed.setText("");
             }
@@ -114,5 +120,6 @@ public class FixedGame extends AppCompatActivity {
         setContentView(R.layout.activity_game_screen);
         displayProblem();
         buttonClick();
+
     }
 }
