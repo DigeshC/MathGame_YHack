@@ -18,10 +18,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class GameScreen extends AppCompatActivity {
     Random rand = new Random();
     int number = 1;
     int realAnswer;
+    int numQues = 20;
 
     private int generateNum(int max){
         return rand.nextInt(max);
@@ -36,11 +39,13 @@ public class GameScreen extends AppCompatActivity {
         num2 = generateNum(10);
         TextView tv1 = (TextView) findViewById(R.id.textView);
         TextView tv2 = (TextView) findViewById(R.id.textView2);
+        TextView tv3 = (TextView) findViewById(R.id.textView4);
 
         tv1.setText(num1+ "");
         tv2.setText(num2+ "");
-
+        tv3.setText(((numQues + 1) - number)+"");
         realAnswer = num1+num2;
+
         checkEnd();
     }
 
@@ -53,11 +58,11 @@ public class GameScreen extends AppCompatActivity {
                 String value = ed.getText().toString();
                 int finalValue = Integer.parseInt(value);
                 if (finalValue == realAnswer) {
-                    Log.d("Success", "Happy");
+                    //Log.d("Success", "Happy")
+                    number++;;
                     displayProblem();
-                    number++;
                 } else {
-                    Log.d("Fail", "Sad");
+                    //Log.d("Fail", "Sad");
                 }
                 ed.setText("");
             }
@@ -65,8 +70,8 @@ public class GameScreen extends AppCompatActivity {
     }
 
     private void checkEnd(){
-        Log.d("Exit", "Help");
-        if (number>3){
+        //Log.d("Exit", "Help");
+        if (number>numQues){
             Intent startint = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(startint);
         }
