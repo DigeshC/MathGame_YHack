@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#6319"
-    tools:context=".GameScreen">
+    tools:context=".FixedGame">
 
     <TextView
         android:id="@+id/textView"

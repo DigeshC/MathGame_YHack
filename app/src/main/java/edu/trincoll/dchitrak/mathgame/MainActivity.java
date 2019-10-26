@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         press.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent startint = new Intent(getApplicationContext(), GameScreen.class);
+                Intent startint = new Intent(getApplicationContext(), FixedGame.class);
                 //startint.putExtra("com.example.twobutton.SOMETHING", "");
                 startActivity(startint);
             }

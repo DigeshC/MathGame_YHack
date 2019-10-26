@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class GameScreen extends AppCompatActivity {
+public class FixedGame extends AppCompatActivity {
     Random rand = new Random();
     int number = 1;
     int realAnswer;
