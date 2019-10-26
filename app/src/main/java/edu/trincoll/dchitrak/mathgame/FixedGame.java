@@ -9,6 +9,7 @@ import java.util.Random;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -32,6 +33,20 @@ public class FixedGame extends AppCompatActivity {
         return rand.nextInt(max);
     }
 
+
+    private void clearDisplay(){
+        TextView tv1 = (TextView) findViewById(R.id.textView);
+        TextView tv2 = (TextView) findViewById(R.id.textView2);
+        TextView tv3 = (TextView) findViewById(R.id.textView4);
+        TextView tv4 = (TextView) findViewById(R.id.textView3);
+
+        realAnswer = -9999999;
+        tv1.setText("");
+        tv2.setText("");
+        tv3.setText("");
+        tv4.setText("");
+
+    }
 
     private void displayProblem(){
 
@@ -92,10 +107,11 @@ public class FixedGame extends AppCompatActivity {
                 int finalValue = Integer.parseInt(value);
                 if (finalValue == realAnswer) {
                     //Log.d("Success", "Happy")
+                    tracker.recalculateScore();
                     TextView tvs = (TextView) findViewById(R.id.score);
                     number++;;
                     displayProblem();
-                    tracker.recalculateScore();
+
                     tvs.setText(tracker.getScore()+"");
                 } else {
                     //Log.d("Fail", "Sad");
@@ -108,8 +124,12 @@ public class FixedGame extends AppCompatActivity {
 
     private void checkEnd(){
         //Log.d("Exit", "Help");
+        SystemClock.sleep(100);
         if (number>numQues){
-            Intent startint = new Intent(getApplicationContext(), MainActivity.class);
+            clearDisplay();
+            Intent startint = new Intent(getApplicationContext(), ResultsPage.class);
+            startint.putExtra("Score", tracker.getScore()+"");
+            startint.putExtra("Time", tracker.getTime()+"");
             startActivity(startint);
         }
     }

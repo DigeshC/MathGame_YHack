@@ -2,6 +2,7 @@ package edu.trincoll.dchitrak.mathgame;
 
 import java.io.*;
 
+
 public class NumTrack {
     private long starttime;
     private long taketime;
@@ -49,24 +50,9 @@ public class NumTrack {
                 System.out.println("Exception Occurred:");
                 e.printStackTrace();
             }
-        } else {
-            String text = "";
-            int lineNumber;
-            try {
-                FileReader readfile = new FileReader(filename);
-                BufferedReader readbuffer = new BufferedReader(readfile);
-                for (lineNumber = 1; lineNumber < 20; lineNumber++) {
-                    text = readbuffer.readLine();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
+
     }
-
-
-
-
 
     public long getInterval() {
         this.taketime = System.currentTimeMillis();
@@ -87,6 +73,9 @@ public class NumTrack {
         time = time/1000;
         int digit1and2 = (int)time/60;
         int digit3and4 = (int)time%60;
+        if (digit3and4 <= 9) {
+            return digit1and2+":0"+digit3and4;
+        }
         return digit1and2+":"+digit3and4;
     }
 
@@ -111,14 +100,22 @@ public class NumTrack {
         int newval = (int)(getInterval())/1000;
         newval = newval*newval+1;
         newval = 100+500/newval;
-        double newval2 = (1+.25*(getStreaks()));
+        double newval2 = (1+.075*(getStreaks()));
         newval2 = newval2*newval;
         newval = (int) newval2;
         this.score += newval;
+
     }
 
     public int getScore() {
         return score;
     }
+
+
+
+
+
+
+
 
 }
