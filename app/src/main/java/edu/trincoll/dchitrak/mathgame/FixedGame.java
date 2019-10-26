@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -71,6 +72,15 @@ public class FixedGame extends AppCompatActivity {
     }
 
     private void buttonClick(){
+        ImageButton exitButton = (ImageButton) findViewById(R.id.imageButton);
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startint = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(startint);
+            }
+        });
+
         final EditText ed = (EditText) findViewById(R.id.editText4);
         Button press = (Button) findViewById(R.id.button2);
         press.setOnClickListener(new View.OnClickListener() {

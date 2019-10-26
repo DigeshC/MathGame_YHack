@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".TimedGame">
 
+    <TextView
+        android:id="@+id/countdownText"
+        android:layout_width="127dp"
+        android:layout_height="53dp"
+        android:text="Timer"
+        android:textSize="35sp"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="233dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

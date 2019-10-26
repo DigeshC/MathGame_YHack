@@ -14,11 +14,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /* this button is for the fixed game setup */
         Button press = (Button) findViewById(R.id.button);
         press.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent startint = new Intent(getApplicationContext(), FixedGame.class);
+                //startint.putExtra("com.example.twobutton.SOMETHING", "");
+                startActivity(startint);
+            }
+        });
+
+
+        /* this button is for the timed game setup */
+        Button timePress = (Button) findViewById(R.id.timeButton);
+        timePress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startint = new Intent(getApplicationContext(), TimedGame.class);
                 //startint.putExtra("com.example.twobutton.SOMETHING", "");
                 startActivity(startint);
             }
