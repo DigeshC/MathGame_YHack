@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">MathGame</string>
     <string name="Answer">Answer</string>
-    <string name="title_activity_timed_game">TimedGame</string>
 </resources>
